@@ -30,7 +30,7 @@ export function Hero() {
 
       <div className="relative mx-auto w-full max-w-6xl px-6">
         <div className="max-w-2xl">
-          <Crest className="mb-6 h-16 w-auto text-rust" />
+          <Crest className="mb-6 h-16 w-auto text-caramel" />
           <span className="section-kicker !text-caramel">
             {content.brand.name} — {content.brand.tagline}
           </span>

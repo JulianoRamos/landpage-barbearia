@@ -75,5 +75,14 @@ export async function saveContent(content: SiteContent): Promise<void> {
   const { error } = await supabase
     .from("site_content")
     .upsert({ id: CONTENT_ROW_ID, data: validated, updated_at: new Date().toISOString() });
-  if (error) throw new Error(error.message);
+  if (error) {
+    // Mensagens mais úteis para os erros de configuração mais comuns.
+    const msg = error.message || "";
+    if (/does not exist|schema cache|relation/i.test(msg)) {
+      throw new Error(
+        "Tabela 'site_content' não encontrada. Rode o supabase/schema.sql no SQL Editor do Supabase.",
+      );
+    }
+    throw new Error(`Supabase: ${msg}`);
+  }
 }

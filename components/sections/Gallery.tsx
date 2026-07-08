@@ -33,7 +33,7 @@ export function Gallery() {
         {gallery.items.map((item, i) => (
           <div
             key={item.id}
-            className="group relative aspect-square overflow-hidden rounded-xl"
+            className="group relative aspect-square overflow-hidden rounded-sm"
           >
             <ItemControls
               canMoveUp={i > 0}

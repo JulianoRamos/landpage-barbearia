@@ -24,8 +24,8 @@ export function ItemControls({
   if (!editing) return null;
 
   const btn =
-    "flex h-7 w-7 items-center justify-center rounded-full bg-ink-950/80 text-white text-sm " +
-    "border border-white/20 hover:bg-gold-500 hover:text-ink-950 disabled:opacity-30 disabled:hover:bg-ink-950/80 disabled:hover:text-white";
+    "flex h-7 w-7 items-center justify-center rounded-full bg-forest/90 text-cream text-sm " +
+    "border border-cream/25 hover:bg-rust hover:text-cream disabled:opacity-30 disabled:hover:bg-forest/90";
 
   return (
     <div className="absolute right-2 top-2 z-10 flex gap-1">
@@ -72,7 +72,7 @@ export function AddButton({
     <button
       type="button"
       onClick={onClick}
-      className="mt-8 inline-flex items-center gap-2 rounded-full border border-dashed border-gold-500/60 px-5 py-2.5 text-sm font-semibold text-gold-400 transition hover:bg-gold-500/10"
+      className="mt-8 inline-flex items-center gap-2 rounded-sm border border-dashed border-rust/60 px-5 py-2.5 text-sm font-medium uppercase tracking-brand text-rust transition hover:bg-rust/10"
     >
       + {label}
     </button>

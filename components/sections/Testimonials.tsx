@@ -15,14 +15,14 @@ function Stars({
   editing: boolean;
 }) {
   return (
-    <div className="flex gap-0.5 text-gold-400" aria-label={`${rating} de 5`}>
+    <div className="flex gap-0.5 text-caramel" aria-label={`${rating} de 5`}>
       {[1, 2, 3, 4, 5].map((n) => (
         <button
           key={n}
           type="button"
           disabled={!editing}
           onClick={() => onChange(n)}
-          className={n <= rating ? "" : "text-neutral-600"}
+          className={n <= rating ? "" : "text-forest/20"}
         >
           ★
         </button>
@@ -57,7 +57,7 @@ export function Testimonials() {
         {testimonials.items.map((t, i) => (
           <figure
             key={t.id}
-            className="relative rounded-2xl border border-ink-700 bg-ink-800 p-6"
+            className="relative rounded-sm border border-forest/15 bg-cream-50 p-7"
           >
             <ItemControls
               canMoveUp={i > 0}
@@ -80,13 +80,13 @@ export function Testimonials() {
               multiline
               value={t.text}
               onCommit={(v) => mutate((c) => (c.testimonials.items[i].text = v))}
-              className="mt-4 italic text-neutral-300"
+              className="mt-4 text-lg leading-relaxed text-forest/80"
             />
             <EditableText
               as="figcaption"
               value={t.name}
               onCommit={(v) => mutate((c) => (c.testimonials.items[i].name = v))}
-              className="mt-4 font-semibold text-white"
+              className="mt-4 text-sm uppercase tracking-brand text-forest"
             />
           </figure>
         ))}

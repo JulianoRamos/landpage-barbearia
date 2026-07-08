@@ -2,65 +2,66 @@ import type { SiteContent } from "./content.types";
 import { placeholderImage } from "./placeholder";
 
 /**
- * Conteúdo inicial da barbearia (pt-BR).
+ * Conteúdo inicial da PATRONO Barbearia (pt-BR), seguindo o manual da marca.
  * Usado como seed do banco e como fallback quando ainda não há dados salvos.
  *
- * As imagens são placeholders embutidos (SVG data-URI) — sempre renderizam e
- * devem ser substituídas pelas fotos reais da barbearia no modo de edição.
+ * As imagens são placeholders embutidos (SVG data-URI) nas cores da marca —
+ * substitua pelas fotos reais no modo de edição.
  */
 export const defaultContent: SiteContent = {
   brand: {
-    name: "Navalha & Cia",
+    name: "PATRONO",
     tagline: "Barbearia",
+    logoUrl: "",
   },
   hero: {
-    title: "Corte, estilo e tradição",
+    title: "Pra homem que não complica.",
     subtitle:
-      "Uma barbearia onde cada detalhe importa. Corte na régua, barba desenhada e aquele café por conta da casa.",
-    ctaLabel: "Agendar pelo WhatsApp",
+      "Corte, barba e cuidado do jeito que tem que ser. Sem excesso, sem enrolação — só o que é clássico e bem-feito.",
+    ctaLabel: "Agendar horário",
     media: {
       type: "image",
-      url: placeholderImage("Foto de destaque (hero)", { w: 1600, h: 1000, icon: "✂" }),
+      url: placeholderImage("Foto de destaque (hero)", { w: 1600, h: 1000, icon: "🐺" }),
       caption: "Ambiente da barbearia",
     },
   },
   about: {
-    kicker: "Sobre nós",
-    title: "Tradição encontra o moderno",
-    text: "Há mais de 10 anos cuidando do visual masculino com técnica, capricho e atendimento de verdade. Nossos barbeiros são especialistas em cortes clássicos e nas tendências mais atuais. Aqui você relaxa, toma um café e sai renovado.",
-    image: placeholderImage("Foto da barbearia", { w: 1000, h: 1250, icon: "💈" }),
+    kicker: "Sobre",
+    title: "Para quem entende o valor do clássico",
+    text: "A PATRONO nasceu pra quem já sabe o que quer. Aqui o corte é na régua, a barba é desenhada e o atendimento é de verdade. Excesso nunca foi sinal de domínio — o que vale é a técnica, o capricho e o respeito pelo seu tempo.",
+    image: placeholderImage("Foto da barbearia", { w: 1000, h: 1250, icon: "🐺" }),
   },
   services: {
     kicker: "Serviços",
-    title: "Nossos serviços e preços",
+    title: "O que fazemos",
     items: [
       {
         id: "svc-corte",
         name: "Corte de cabelo",
         description: "Corte personalizado, lavagem e finalização.",
         durationMin: 40,
-        price: "R$ 45",
+        price: "R$ 50",
       },
       {
         id: "svc-barba",
         name: "Barba",
         description: "Toalha quente, navalha e hidratação.",
         durationMin: 30,
-        price: "R$ 35",
+        price: "R$ 40",
       },
       {
         id: "svc-combo",
-        name: "Combo Corte + Barba",
-        description: "O pacote completo para renovar o visual.",
+        name: "Corte + Barba",
+        description: "O pacote completo. Do jeito que tem que ser.",
         durationMin: 70,
-        price: "R$ 70",
+        price: "R$ 80",
       },
       {
         id: "svc-pezinho",
         name: "Acabamento (pezinho)",
-        description: "Retoque rápido para manter o corte na régua.",
+        description: "Retoque rápido pra manter tudo na régua.",
         durationMin: 15,
-        price: "R$ 20",
+        price: "R$ 25",
       },
     ],
   },
@@ -68,30 +69,30 @@ export const defaultContent: SiteContent = {
     kicker: "Galeria",
     title: "Nossos trabalhos",
     items: [
-      { id: "g1", type: "image", url: placeholderImage("Trabalho 1", { w: 900, h: 900, icon: "✂" }), caption: "Corte degradê" },
-      { id: "g2", type: "image", url: placeholderImage("Trabalho 2", { w: 900, h: 900, icon: "💈" }), caption: "Barba desenhada" },
-      { id: "g3", type: "image", url: placeholderImage("Trabalho 3", { w: 900, h: 900, icon: "✂" }), caption: "Ambiente" },
-      { id: "g4", type: "image", url: placeholderImage("Trabalho 4", { w: 900, h: 900, icon: "💈" }), caption: "Cadeira clássica" },
-      { id: "g5", type: "image", url: placeholderImage("Trabalho 5", { w: 900, h: 900, icon: "✂" }), caption: "Detalhes" },
-      { id: "g6", type: "image", url: placeholderImage("Trabalho 6", { w: 900, h: 900, icon: "💈" }), caption: "Corte finalizado" },
+      { id: "g1", type: "image", url: placeholderImage("Trabalho 1", { w: 900, h: 900, icon: "🐺" }), caption: "Corte degradê" },
+      { id: "g2", type: "image", url: placeholderImage("Trabalho 2", { w: 900, h: 900, icon: "🐺" }), caption: "Barba desenhada" },
+      { id: "g3", type: "image", url: placeholderImage("Trabalho 3", { w: 900, h: 900, icon: "🐺" }), caption: "Ambiente" },
+      { id: "g4", type: "image", url: placeholderImage("Trabalho 4", { w: 900, h: 900, icon: "🐺" }), caption: "Cadeira clássica" },
+      { id: "g5", type: "image", url: placeholderImage("Trabalho 5", { w: 900, h: 900, icon: "🐺" }), caption: "Detalhes" },
+      { id: "g6", type: "image", url: placeholderImage("Trabalho 6", { w: 900, h: 900, icon: "🐺" }), caption: "Corte finalizado" },
     ],
   },
   team: {
     kicker: "Equipe",
     title: "Nossos barbeiros",
     items: [
-      { id: "t1", name: "Rafael Souza", role: "Barbeiro master", photo: placeholderImage("Foto do barbeiro", { w: 600, h: 800, icon: "👤" }), instagram: "" },
-      { id: "t2", name: "Lucas Almeida", role: "Especialista em barba", photo: placeholderImage("Foto do barbeiro", { w: 600, h: 800, icon: "👤" }), instagram: "" },
-      { id: "t3", name: "Diego Martins", role: "Barbeiro", photo: placeholderImage("Foto do barbeiro", { w: 600, h: 800, icon: "👤" }), instagram: "" },
+      { id: "t1", name: "Rafael Souza", role: "Barbeiro master", photo: placeholderImage("Foto do barbeiro", { w: 600, h: 800, icon: "🐺" }), instagram: "" },
+      { id: "t2", name: "Lucas Almeida", role: "Especialista em barba", photo: placeholderImage("Foto do barbeiro", { w: 600, h: 800, icon: "🐺" }), instagram: "" },
+      { id: "t3", name: "Diego Martins", role: "Barbeiro", photo: placeholderImage("Foto do barbeiro", { w: 600, h: 800, icon: "🐺" }), instagram: "" },
     ],
   },
   testimonials: {
     kicker: "Depoimentos",
-    title: "O que dizem nossos clientes",
+    title: "O que dizem",
     items: [
-      { id: "d1", name: "André P.", text: "Melhor barbearia da região. Atendimento impecável e o corte sempre perfeito.", rating: 5 },
-      { id: "d2", name: "Marcelo R.", text: "Ambiente top, profissionais que entendem do assunto. Virei cliente fiel.", rating: 5 },
-      { id: "d3", name: "Bruno S.", text: "Chego, tomo um café e saio novo. Recomendo demais!", rating: 5 },
+      { id: "d1", name: "André P.", text: "Cheguei sabendo o que queria e saí exatamente como imaginei. Sem enrolação.", rating: 5 },
+      { id: "d2", name: "Marcelo R.", text: "Ambiente à altura da marca. Profissionais que entendem do clássico.", rating: 5 },
+      { id: "d3", name: "Bruno S.", text: "Pra homem que não complica é isso aqui. Virei cliente fiel.", rating: 5 },
     ],
   },
   contact: {
@@ -105,8 +106,8 @@ export const defaultContent: SiteContent = {
       { label: "Domingo", value: "Fechado" },
     ],
     whatsapp: "5511999999999",
-    whatsappMessage: "Olá! Gostaria de agendar um horário.",
+    whatsappMessage: "Olá! Gostaria de agendar um horário na PATRONO.",
     instagram: "https://instagram.com",
-    email: "contato@suabarbearia.com.br",
+    email: "contato@patrono.com.br",
   },
 };

@@ -1,13 +1,29 @@
-# 💈 Landing Page de Barbearia — conteúdo editável
+# 🐺 PATRONO Barbearia — landing page editável
 
-Landing page moderna para barbearia (tema escuro + dourado) onde **o próprio dono edita
+Landing page da **PATRONO Barbearia** (Francisco Beltrão – PR) onde **o próprio dono edita
 os textos, imagens e vídeos direto na página**, sem mexer em código.
+
+Identidade seguindo o manual/briefing da marca: **verde escuro** como base estrutural,
+**cobre** como assinatura pontual, off-white quente de apoio, tipografia serifada
+institucional e tom sóbrio/atemporal.
 
 - **Stack:** Next.js 14 (App Router) + TypeScript + Tailwind CSS
 - **Edição:** inline na própria página, protegida por senha
 - **Persistência:** Supabase (Postgres) — com fallback local em desenvolvimento
 - **Mídia:** upload para Cloudinary (com opção de colar URL)
 - **Deploy:** Vercel
+
+## Marca (PATRONO)
+
+- **Cores:** verde `#16210E` · cobre/caramelo `#C08653` · laranja `#C05A16` · off-white `#F6F4E0`
+  (definidas em `tailwind.config.ts`).
+- **Tipografia:** o manual usa **Ws Paradose** (títulos) e **Gobold Thin Light** (textos),
+  que são fontes comerciais. Até licenciá-las/hospedá-las, usamos substitutas próximas do
+  Google Fonts: **Playfair Display** (títulos) e **Oswald** (textos), configuradas em
+  `app/layout.tsx`.
+- **Logo:** o brasão exibido é uma **aproximação** em SVG (`components/brand/Crest.tsx`).
+  Para usar o logo oficial, entre no modo de edição e defina a imagem do logo, ou preencha
+  `brand.logoUrl` no conteúdo — o header passa a exibir o arquivo oficial automaticamente.
 
 ## Seções
 Hero · Sobre · Serviços & Preços · Galeria · Equipe · Depoimentos · Contato/Agendamento (WhatsApp) · Rodapé

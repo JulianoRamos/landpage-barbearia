@@ -10,7 +10,7 @@ export function Contact() {
   const { contact } = content;
 
   return (
-    <section id="contato" className="bg-ink-900">
+    <section id="contato" className="bg-forest text-cream">
       <div className="section grid gap-12 md:grid-cols-2">
         <div>
           <span className="section-kicker">
@@ -27,21 +27,21 @@ export function Contact() {
             className="section-title"
           />
 
-          <p className="mt-6 text-sm uppercase tracking-wide text-gold-500">Endereço</p>
+          <p className="mt-6 text-xs uppercase tracking-brand text-caramel">Endereço</p>
           <EditableText
             as="p"
             multiline
             value={contact.address}
             onCommit={(v) => mutate((c) => (c.contact.address = v))}
-            className="mt-1 text-neutral-300"
+            className="mt-1 text-cream/80"
           />
 
-          <p className="mt-6 text-sm uppercase tracking-wide text-gold-500">Horários</p>
+          <p className="mt-6 text-xs uppercase tracking-brand text-caramel">Horários</p>
           <ul className="mt-2 space-y-1">
             {contact.hours.map((h, i) => (
               <li
                 key={i}
-                className="relative flex justify-between gap-4 border-b border-ink-700 py-1.5 text-neutral-300"
+                className="relative flex justify-between gap-4 border-b border-cream/15 py-2 text-cream/80"
               >
                 <ItemControls
                   canMoveUp={i > 0}
@@ -63,7 +63,7 @@ export function Contact() {
                   as="span"
                   value={h.value}
                   onCommit={(v) => mutate((c) => (c.contact.hours[i].value = v))}
-                  className="font-medium text-white"
+                  className="font-medium text-cream"
                 />
               </li>
             ))}
@@ -76,7 +76,7 @@ export function Contact() {
           />
 
           {editing && (
-            <p className="mt-6 text-sm uppercase tracking-wide text-gold-500">
+            <p className="mt-6 text-xs uppercase tracking-brand text-caramel">
               WhatsApp (somente números, com DDI)
             </p>
           )}
@@ -87,7 +87,7 @@ export function Contact() {
               onCommit={(v) =>
                 mutate((c) => (c.contact.whatsapp = v.replace(/\D/g, "")))
               }
-              className="mt-1 text-neutral-300"
+              className="mt-1 text-cream/80"
             />
           )}
 
@@ -96,7 +96,7 @@ export function Contact() {
               href={whatsappLink(contact.whatsapp, contact.whatsappMessage)}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-gold"
+              className="btn-primary"
             >
               Agendar pelo WhatsApp
             </a>
@@ -115,7 +115,7 @@ export function Contact() {
                 if (next && next.trim())
                   mutate((c) => (c.contact.mapEmbedUrl = next.trim()));
               }}
-              className="absolute right-2 top-2 z-10 rounded-full bg-gold-500 px-3 py-1 text-xs font-semibold text-ink-950"
+              className="absolute right-2 top-2 z-10 rounded-sm bg-caramel px-3 py-1 text-xs font-medium uppercase tracking-brand text-forest"
             >
               Editar mapa
             </button>
@@ -123,7 +123,7 @@ export function Contact() {
           <iframe
             title="Mapa"
             src={contact.mapEmbedUrl}
-            className="h-full min-h-[320px] w-full rounded-2xl border border-ink-700"
+            className="h-full min-h-[320px] w-full rounded-sm border border-cream/20"
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
           />

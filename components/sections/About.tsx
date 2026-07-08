@@ -9,9 +9,10 @@ export function About() {
   const { about } = content;
 
   return (
-    <section id="sobre" className="section grid items-center gap-12 md:grid-cols-2">
+    <section id="sobre" className="bg-cream">
+      <div className="section grid items-center gap-12 md:grid-cols-2">
       <EditableMedia
-        className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl"
+        className="relative aspect-[4/5] w-full overflow-hidden rounded-sm"
         url={about.image}
         type="image"
         allowVideo={false}
@@ -37,8 +38,9 @@ export function About() {
           multiline
           value={about.text}
           onCommit={(v) => mutate((c) => (c.about.text = v))}
-          className="mt-5 leading-relaxed text-neutral-300"
+          className="mt-5 text-lg leading-relaxed text-forest/80"
         />
+      </div>
       </div>
     </section>
   );

@@ -3,8 +3,9 @@
 @tailwind utilities;
 
 :root {
-  --font-sans: "Inter", system-ui, sans-serif;
+  /* Substitutas próximas das fontes da marca (Ws Paradose / Gobold Thin Light) */
   --font-display: "Playfair Display", Georgia, serif;
+  --font-sans: "Oswald", system-ui, sans-serif;
 }
 
 html {
@@ -12,7 +13,14 @@ html {
 }
 
 body {
-  @apply bg-ink-950 text-neutral-200 font-sans antialiased;
+  @apply bg-cream text-forest font-sans antialiased;
+  font-weight: 300;
+  letter-spacing: 0.01em;
+}
+
+/* Parágrafos com respiro (fonte condensada) */
+p {
+  @apply leading-relaxed;
 }
 
 /* Seção padrão */
@@ -21,31 +29,37 @@ body {
 }
 
 .section-title {
-  @apply font-display text-3xl md:text-4xl font-bold text-white;
+  @apply font-display text-3xl md:text-5xl font-bold uppercase tracking-tight;
 }
 
 .section-kicker {
-  @apply mb-3 inline-block text-sm font-semibold uppercase tracking-[0.2em] text-gold-500;
+  @apply mb-4 inline-block font-sans text-xs uppercase tracking-brand text-caramel;
+  font-weight: 500;
 }
 
-/* Botão dourado */
-.btn-gold {
-  @apply inline-flex items-center justify-center gap-2 rounded-full bg-gold-500 px-7 py-3
-         font-semibold text-ink-950 transition hover:bg-gold-400
-         focus:outline-none focus:ring-2 focus:ring-gold-400 focus:ring-offset-2 focus:ring-offset-ink-950;
+/* Botões — cobre como assinatura (contido, tátil), texto verde para legibilidade */
+.btn-primary {
+  @apply inline-flex items-center justify-center gap-2 rounded-sm bg-caramel px-8 py-3.5
+         font-sans text-sm font-medium uppercase tracking-brand text-forest transition
+         hover:bg-caramel-400 focus:outline-none focus:ring-2 focus:ring-caramel focus:ring-offset-2 focus:ring-offset-transparent;
 }
 
 .btn-outline {
-  @apply inline-flex items-center justify-center gap-2 rounded-full border border-gold-500/60 px-7 py-3
-         font-semibold text-gold-400 transition hover:bg-gold-500/10;
+  @apply inline-flex items-center justify-center gap-2 rounded-sm border border-current px-8 py-3.5
+         font-sans text-sm font-medium uppercase tracking-brand transition hover:bg-caramel/10;
 }
 
-/* Realce de elementos editáveis quando o modo edição está ativo */
+/* Destaque pontual (última palavra) — usar com parcimônia */
+.accent {
+  @apply text-rust;
+}
+
+/* Realce de elementos editáveis no modo edição */
 .edit-mode [data-editable] {
-  @apply rounded outline-dashed outline-1 outline-gold-500/50 outline-offset-2
-         transition hover:outline-gold-400 hover:bg-gold-500/5 cursor-text;
+  @apply rounded-sm outline-dashed outline-1 outline-rust/50 outline-offset-4
+         transition hover:outline-rust hover:bg-rust/5 cursor-text;
 }
 
 .edit-mode [data-editable-media] {
-  @apply relative rounded outline-dashed outline-2 outline-gold-500/60 outline-offset-2;
+  @apply relative rounded-sm outline-dashed outline-2 outline-rust/60 outline-offset-2;
 }

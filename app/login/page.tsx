@@ -37,24 +37,24 @@ export default function LoginPage() {
     <main className="flex min-h-screen items-center justify-center px-6">
       <form
         onSubmit={handleSubmit}
-        className="w-full max-w-sm rounded-2xl border border-ink-700 bg-ink-900 p-8 shadow-xl"
+        className="w-full max-w-sm rounded-sm border border-cream/15 bg-forest p-8 text-cream shadow-xl"
       >
-        <h1 className="font-display text-2xl font-bold text-white">
+        <h1 className="font-display text-2xl font-bold uppercase tracking-tight text-cream">
           Área do administrador
         </h1>
-        <p className="mt-2 text-sm text-neutral-400">
+        <p className="mt-2 text-sm text-cream/60">
           Entre com a senha para editar o conteúdo do site.
         </p>
 
-        <label className="mt-6 block text-sm font-medium text-neutral-300">
+        <label className="mt-6 block text-xs uppercase tracking-brand text-cream/80">
           Senha
           <input
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             autoFocus
-            className="mt-1 w-full rounded-lg border border-ink-700 bg-ink-800 px-3 py-2 text-white
-                       outline-none focus:border-gold-500 focus:ring-1 focus:ring-gold-500"
+            className="mt-2 w-full rounded-sm border border-cream/20 bg-forest-700 px-3 py-2 normal-case tracking-normal text-cream
+                       outline-none focus:border-caramel focus:ring-1 focus:ring-caramel"
             placeholder="••••••••"
           />
         </label>
@@ -64,14 +64,14 @@ export default function LoginPage() {
         <button
           type="submit"
           disabled={loading}
-          className="btn-gold mt-6 w-full disabled:opacity-60"
+          className="btn-primary mt-6 w-full disabled:opacity-60"
         >
           {loading ? "Entrando..." : "Entrar"}
         </button>
 
         <a
           href="/"
-          className="mt-4 block text-center text-sm text-neutral-400 hover:text-gold-400"
+          className="mt-4 block text-center text-sm text-cream/60 hover:text-caramel"
         >
           ← Voltar para o site
         </a>

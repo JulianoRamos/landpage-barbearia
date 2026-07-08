@@ -104,7 +104,7 @@ export function EditableMedia({
   return (
     <div className={className} data-editable-media>
       {media}
-      <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-ink-950/60 opacity-0 transition hover:opacity-100">
+      <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-forest/70 opacity-0 transition hover:opacity-100">
         <input
           ref={fileRef}
           type="file"
@@ -120,7 +120,7 @@ export function EditableMedia({
           type="button"
           disabled={busy}
           onClick={() => fileRef.current?.click()}
-          className="rounded-full bg-gold-500 px-4 py-1.5 text-sm font-semibold text-ink-950 disabled:opacity-60"
+          className="rounded-sm bg-caramel px-4 py-1.5 text-sm font-medium uppercase tracking-brand text-forest disabled:opacity-60"
         >
           {busy ? "Enviando..." : "Trocar mídia"}
         </button>

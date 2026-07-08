@@ -45,6 +45,7 @@ export const siteContentSchema = z.object({
   brand: z.object({
     name: z.string(),
     tagline: z.string(),
+    logoUrl: z.string().optional().default(""),
   }),
   hero: z.object({
     title: z.string(),

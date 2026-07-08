@@ -7,13 +7,13 @@ export function Footer() {
   const { brand, contact } = content;
 
   return (
-    <footer className="border-t border-white/5 bg-ink-950">
-      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 py-10 text-sm text-neutral-400 md:flex-row">
+    <footer className="border-t border-cream/10 bg-forest text-cream">
+      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 py-10 text-sm text-cream/60 md:flex-row">
         <div className="flex items-baseline gap-2">
-          <span className="font-display text-lg font-bold text-white">
+          <span className="font-display text-lg font-bold uppercase tracking-tight text-cream">
             {brand.name}
           </span>
-          <span className="text-xs uppercase tracking-widest text-gold-500">
+          <span className="text-xs uppercase tracking-brand text-caramel">
             {brand.tagline}
           </span>
         </div>
@@ -23,13 +23,13 @@ export function Footer() {
               href={contact.instagram}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-gold-400"
+              className="uppercase tracking-brand hover:text-caramel"
             >
               Instagram
             </a>
           )}
           {contact.email && (
-            <a href={`mailto:${contact.email}`} className="hover:text-gold-400">
+            <a href={`mailto:${contact.email}`} className="hover:text-caramel">
               {contact.email}
             </a>
           )}

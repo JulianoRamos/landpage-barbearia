@@ -12,7 +12,7 @@ export function Team() {
   const { team } = content;
 
   return (
-    <section id="equipe" className="bg-ink-900">
+    <section id="equipe" className="bg-forest text-cream">
       <div className="section">
         <div className="text-center">
           <span className="section-kicker">
@@ -34,7 +34,7 @@ export function Team() {
           {team.items.map((member, i) => (
             <div
               key={member.id}
-              className="relative overflow-hidden rounded-2xl border border-ink-700 bg-ink-800"
+              className="relative overflow-hidden rounded-sm border border-cream/15 bg-forest-700"
             >
               <ItemControls
                 canMoveUp={i > 0}
@@ -60,13 +60,13 @@ export function Team() {
                   as="h3"
                   value={member.name}
                   onCommit={(v) => mutate((c) => (c.team.items[i].name = v))}
-                  className="text-lg font-semibold text-white"
+                  className="font-display text-xl font-bold uppercase tracking-tight text-cream"
                 />
                 <EditableText
                   as="p"
                   value={member.role}
                   onCommit={(v) => mutate((c) => (c.team.items[i].role = v))}
-                  className="text-sm text-gold-400"
+                  className="mt-1 text-xs uppercase tracking-brand text-caramel"
                 />
               </div>
             </div>

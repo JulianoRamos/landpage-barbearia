@@ -10,7 +10,7 @@ export function Services() {
   const { services } = content;
 
   return (
-    <section id="servicos" className="bg-ink-900">
+    <section id="servicos" className="bg-forest text-cream">
       <div className="section">
         <div className="text-center">
           <span className="section-kicker">
@@ -32,7 +32,7 @@ export function Services() {
           {services.items.map((svc, i) => (
             <div
               key={svc.id}
-              className="relative flex items-start justify-between gap-4 rounded-xl border border-ink-700 bg-ink-800 p-5"
+              className="relative flex items-start justify-between gap-4 rounded-sm border border-cream/15 bg-forest-700 p-5"
             >
               <ItemControls
                 canMoveUp={i > 0}
@@ -52,16 +52,16 @@ export function Services() {
                   as="h3"
                   value={svc.name}
                   onCommit={(v) => mutate((c) => (c.services.items[i].name = v))}
-                  className="text-lg font-semibold text-white"
+                  className="font-display text-xl font-bold uppercase tracking-tight text-cream"
                 />
                 <EditableText
                   as="p"
                   multiline
                   value={svc.description}
                   onCommit={(v) => mutate((c) => (c.services.items[i].description = v))}
-                  className="mt-1 text-sm text-neutral-400"
+                  className="mt-1 text-sm text-cream/60"
                 />
-                <p className="mt-2 text-xs uppercase tracking-wide text-neutral-500">
+                <p className="mt-2 text-xs uppercase tracking-brand text-cream/40">
                   <EditableText
                     as="span"
                     value={String(svc.durationMin)}
@@ -80,7 +80,7 @@ export function Services() {
                 as="div"
                 value={svc.price}
                 onCommit={(v) => mutate((c) => (c.services.items[i].price = v))}
-                className="whitespace-nowrap font-display text-xl font-bold text-gold-400"
+                className="whitespace-nowrap font-display text-2xl font-bold text-caramel"
               />
             </div>
           ))}

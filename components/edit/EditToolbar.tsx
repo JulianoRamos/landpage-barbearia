@@ -1,0 +1,74 @@
+"use client";
+
+import { useRouter } from "next/navigation";
+import { useEdit } from "./EditProvider";
+
+/** Barra flutuante de administração (visível apenas para admin autenticado). */
+export function EditToolbar() {
+  const router = useRouter();
+  const { isAdmin, editing, setEditing, dirty, saving, save, savedAt, error } =
+    useEdit();
+
+  if (!isAdmin) return null;
+
+  async function handleLogout() {
+    await fetch("/api/auth/logout", { method: "POST" });
+    router.refresh();
+  }
+
+  return (
+    <div className="fixed bottom-4 left-1/2 z-50 flex -translate-x-1/2 items-center gap-2 rounded-full border border-ink-700 bg-ink-900/95 px-3 py-2 shadow-2xl backdrop-blur">
+      {!editing ? (
+        <button
+          type="button"
+          onClick={() => setEditing(true)}
+          className="rounded-full bg-gold-500 px-4 py-1.5 text-sm font-semibold text-ink-950 hover:bg-gold-400"
+        >
+          ✏️ Editar site
+        </button>
+      ) : (
+        <>
+          <span className="px-2 text-xs text-neutral-400">
+            {saving
+              ? "Salvando..."
+              : error
+                ? "Erro ao salvar"
+                : dirty
+                  ? "Alterações não salvas"
+                  : savedAt
+                    ? "Tudo salvo ✓"
+                    : "Modo edição"}
+          </span>
+          <button
+            type="button"
+            onClick={save}
+            disabled={saving || !dirty}
+            className="rounded-full bg-gold-500 px-4 py-1.5 text-sm font-semibold text-ink-950 hover:bg-gold-400 disabled:opacity-50"
+          >
+            Salvar
+          </button>
+          <button
+            type="button"
+            onClick={() => setEditing(false)}
+            className="rounded-full border border-white/20 px-4 py-1.5 text-sm text-white hover:bg-white/10"
+          >
+            Concluir
+          </button>
+        </>
+      )}
+      <button
+        type="button"
+        onClick={handleLogout}
+        title="Sair"
+        className="rounded-full px-2 py-1.5 text-sm text-neutral-400 hover:text-white"
+      >
+        ⎋
+      </button>
+      {error && editing && (
+        <span className="max-w-[200px] truncate text-xs text-red-400" title={error}>
+          {error}
+        </span>
+      )}
+    </div>
+  );
+}

@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-display: "Playfair Display", Georgia, serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-ink-950 text-neutral-200 font-sans antialiased;
+}
+
+/* Seção padrão */
+.section {
+  @apply mx-auto max-w-6xl px-6 py-20 md:py-28;
+}
+
+.section-title {
+  @apply font-display text-3xl md:text-4xl font-bold text-white;
+}
+
+.section-kicker {
+  @apply mb-3 inline-block text-sm font-semibold uppercase tracking-[0.2em] text-gold-500;
+}
+
+/* Botão dourado */
+.btn-gold {
+  @apply inline-flex items-center justify-center gap-2 rounded-full bg-gold-500 px-7 py-3
+         font-semibold text-ink-950 transition hover:bg-gold-400
+         focus:outline-none focus:ring-2 focus:ring-gold-400 focus:ring-offset-2 focus:ring-offset-ink-950;
+}
+
+.btn-outline {
+  @apply inline-flex items-center justify-center gap-2 rounded-full border border-gold-500/60 px-7 py-3
+         font-semibold text-gold-400 transition hover:bg-gold-500/10;
+}
+
+/* Realce de elementos editáveis quando o modo edição está ativo */
+.edit-mode [data-editable] {
+  @apply rounded outline-dashed outline-1 outline-gold-500/50 outline-offset-2
+         transition hover:outline-gold-400 hover:bg-gold-500/5 cursor-text;
+}
+
+.edit-mode [data-editable-media] {
+  @apply relative rounded outline-dashed outline-2 outline-gold-500/60 outline-offset-2;
+}

@@ -1,3 +1,4 @@
+import { redirect } from "next/navigation";
 import { getContent } from "@/lib/store";
 import { isAuthenticated } from "@/lib/auth";
 import { EditProvider } from "@/components/edit/EditProvider";
@@ -19,9 +20,16 @@ export default async function HomePage({
 }: {
   searchParams: { edit?: string };
 }) {
-  const content = await getContent();
+  const wantsEdit = searchParams.edit === "1";
   const admin = isAuthenticated();
-  const initialEditing = admin && searchParams.edit === "1";
+
+  // Bloqueia acesso ao modo de edição sem login: redireciona para /login.
+  if (wantsEdit && !admin) {
+    redirect("/login");
+  }
+
+  const content = await getContent();
+  const initialEditing = admin && wantsEdit;
 
   return (
     <EditProvider

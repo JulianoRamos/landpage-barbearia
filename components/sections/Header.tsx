@@ -1,7 +1,6 @@
 "use client";
 
 import { useEdit } from "../edit/EditProvider";
-import { Crest } from "../brand/Crest";
 import { whatsappLink } from "@/lib/id";
 
 const links = [
@@ -23,7 +22,8 @@ export function Header() {
             <img src={content.brand.logoUrl} alt={content.brand.name} className="h-11 w-auto" />
           ) : (
             <>
-              <Crest className="h-10 w-auto text-forest" />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/logo-verde.png" alt="Brasão PATRONO" className="h-11 w-auto" />
               <span className="leading-none">
                 <span className="block font-display text-2xl font-bold uppercase tracking-tight text-forest">
                   {content.brand.name}

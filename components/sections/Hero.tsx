@@ -3,7 +3,6 @@
 import { useEdit } from "../edit/EditProvider";
 import { EditableText } from "../edit/EditableText";
 import { EditableMedia } from "../edit/EditableMedia";
-import { Crest } from "../brand/Crest";
 import { whatsappLink } from "@/lib/id";
 
 export function Hero() {
@@ -30,7 +29,8 @@ export function Hero() {
 
       <div className="relative mx-auto w-full max-w-6xl px-6">
         <div className="max-w-2xl">
-          <Crest className="mb-6 h-16 w-auto text-caramel" />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/logo-cobre.png" alt="Brasão PATRONO" className="mb-6 h-20 w-auto" />
           <span className="section-kicker !text-caramel">
             {content.brand.name} — {content.brand.tagline}
           </span>

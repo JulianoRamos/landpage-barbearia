@@ -100,7 +100,7 @@ export const defaultContent: SiteContent = {
     title: "Agende seu horário",
     address: "R. Sergipe, 780 — Alvorada, Francisco Beltrão - PR, 85601-040",
     mapEmbedUrl:
-      "https://www.google.com/maps?q=Patrono%20Barbearia%2C%20R.%20Sergipe%2C%20780%20-%20Alvorada%2C%20Francisco%20Beltr%C3%A3o%20-%20PR%2C%2085601-040&output=embed",
+      "https://maps.google.com/maps?q=Patrono%20Barbearia%2C%20R.%20Sergipe%2C%20780%20-%20Alvorada%2C%20Francisco%20Beltr%C3%A3o%20-%20PR%2C%2085601-040&z=16&hl=pt-BR&output=embed",
     hours: [
       { label: "Segunda a Sexta", value: "09h — 20h" },
       { label: "Sábado", value: "09h — 18h" },

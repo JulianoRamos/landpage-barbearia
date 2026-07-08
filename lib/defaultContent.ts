@@ -98,8 +98,9 @@ export const defaultContent: SiteContent = {
   contact: {
     kicker: "Contato",
     title: "Agende seu horário",
-    address: "Rua Exemplo, 123 — Centro, Sua Cidade - UF",
-    mapEmbedUrl: "https://www.google.com/maps?q=barbearia&output=embed",
+    address: "R. Sergipe, 780 — Alvorada, Francisco Beltrão - PR, 85601-040",
+    mapEmbedUrl:
+      "https://www.google.com/maps?q=Patrono%20Barbearia%2C%20R.%20Sergipe%2C%20780%20-%20Alvorada%2C%20Francisco%20Beltr%C3%A3o%20-%20PR%2C%2085601-040&output=embed",
     hours: [
       { label: "Segunda a Sexta", value: "09h — 20h" },
       { label: "Sábado", value: "09h — 18h" },

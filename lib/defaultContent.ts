@@ -107,7 +107,7 @@ export const defaultContent: SiteContent = {
     ],
     whatsapp: "5511999999999",
     whatsappMessage: "Olá! Gostaria de agendar um horário na PATRONO.",
-    instagram: "https://instagram.com",
+    instagram: "https://www.instagram.com/patronobarbearia2010/",
     email: "contato@patrono.com.br",
   },
 };

@@ -4,6 +4,7 @@ import {
   createContext,
   useCallback,
   useContext,
+  useRef,
   useState,
 } from "react";
 import type { SiteContent } from "@/lib/content.types";
@@ -47,12 +48,15 @@ export function EditProvider({
   const [savedAt, setSavedAt] = useState<number | null>(null);
   const [error, setError] = useState("");
 
+  // Espelho síncrono do conteúdo — garante que o save sempre envie a última
+  // edição, mesmo que o commit (blur) tenha ocorrido no mesmo clique do Salvar.
+  const contentRef = useRef<SiteContent>(initialContent);
+
   const mutate = useCallback((fn: (draft: SiteContent) => void) => {
-    setContent((prev) => {
-      const draft = clone(prev);
-      fn(draft);
-      return draft;
-    });
+    const draft = clone(contentRef.current);
+    fn(draft);
+    contentRef.current = draft;
+    setContent(draft);
     setDirty(true);
     setError("");
   }, []);
@@ -64,7 +68,7 @@ export function EditProvider({
       const res = await fetch("/api/content", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(content),
+        body: JSON.stringify(contentRef.current),
       });
       if (!res.ok) {
         const data = await res.json().catch(() => ({}));
@@ -77,7 +81,7 @@ export function EditProvider({
     } finally {
       setSaving(false);
     }
-  }, [content]);
+  }, []);
 
   return (
     <EditContext.Provider

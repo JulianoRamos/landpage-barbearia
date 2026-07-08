@@ -42,10 +42,10 @@ export function EditToolbar() {
           <button
             type="button"
             onClick={save}
-            disabled={saving || !dirty}
+            disabled={saving}
             className="rounded-full bg-caramel px-4 py-1.5 text-sm font-medium uppercase tracking-brand text-forest hover:bg-caramel-400 disabled:opacity-50"
           >
-            Salvar
+            {saving ? "Salvando..." : "Salvar"}
           </button>
           <button
             type="button"
